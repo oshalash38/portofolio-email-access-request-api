@@ -19,7 +19,7 @@ const transporter = nodemailer.createTransport({
 
 // Endpoint to handle access requests
 app.post('/submit-request', async (req, res) => {
-  const { githubUsername, reason, repoName } = req.body;
+  const { githubUsername, reason, repoName, requesterName } = req.body;
 
   if (!githubUsername || !reason || !repoName) {
     return res.status(400).json({ message: 'Missing required fields.' });
@@ -34,6 +34,7 @@ app.post('/submit-request', async (req, res) => {
       <h2 style="text-align: center; color: #007BFF;">New Private Repository Access Request</h2>
       <p>You have a new request for access to the repository: <strong style="color: #007BFF;">${repoName}</strong>.</p>
       <hr style="border: none; border-top: 1px solid #ddd; margin: 20px 0;">
+      <p><strong>Name of Requestor:</strong> ${requesterName}</p>
       <p><strong>GitHub Username:</strong> ${githubUsername}</p>
       <p><strong>Reason for Access:</strong><br>${reason}</p>
       <div style="text-align: center; margin-top: 30px;">
