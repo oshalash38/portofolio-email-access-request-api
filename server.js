@@ -72,7 +72,7 @@ app.get('/accept-request', async (req, res) => {
   try {
     // Use GitHub API to add a collaborator
     const response = await axios.put(
-      `https://api.github.com/repos/oshalash38/${repo}/collaborators/${username}`,
+      `https://api.github.com/repos/${process.env.OWNER}/${repo}/collaborators/${username}`,
       {},
       {
         headers: {
