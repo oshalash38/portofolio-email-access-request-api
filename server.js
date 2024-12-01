@@ -5,6 +5,8 @@ const cors = require('cors');
 const axios = require('axios');
 const rateLimit = require('express-rate-limit');
 const expressSanitizer = require('express-sanitizer');
+const { body, validationResult, query } = require('express-validator');
+
 require('dotenv').config();
 
 const app = express();
@@ -66,7 +68,7 @@ app.post(
       .isLength({ min: 5 })
       .withMessage('Reason must be at least 5 characters long'),
     // Validate 'requestorName' to ensure it's not empty
-    body('requestorName').notEmpty().withMessage('Name is required'),
+    body('requesterName').notEmpty().withMessage('Name is required'),
     // Validate 'repoName' to ensure it follows GitHub repository naming conventions
     body('repoName')
       .matches(/^[a-zA-Z0-9-_]+$/)
