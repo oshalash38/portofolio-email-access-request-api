@@ -9,7 +9,7 @@ require('dotenv').config();
 
 const app = express();
 app.use(express.json());
-app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: true }));
 
 const corsOptions = {
   origin: (origin, callback) => {
@@ -33,8 +33,8 @@ const corsOptions = {
   allowedHeaders: 'Content-Type,Authorization', // Allow specific headers
 };
 
-// app.options('*', cors(corsOptions));
-app.use(cors());
+app.options('*', cors(corsOptions));
+// app.use(cors());
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
