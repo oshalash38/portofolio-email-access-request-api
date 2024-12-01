@@ -96,11 +96,11 @@ app.post(
       <p><strong>GitHub Username:</strong> ${githubUsername}</p>
       <p><strong>Reason for Access:</strong><br>${reason}</p>
       <div style="text-align: center; margin-top: 30px;">
-        <a href="${process.env.BASE_URL}/accept-request?repo=${repoName}&username=${githubUsername}" 
+        <a href="${process.env.BACKEND_URL}/accept-request?repo=${repoName}&username=${githubUsername}" 
            style="display: inline-block; background-color: #28a745; color: #fff; text-decoration: none; padding: 10px 20px; border-radius: 5px; margin: 5px; width: 150px; text-align: center;">
           Accept Request
         </a>
-        <a href="${process.env.BASE_URL}/deny-request?username=${githubUsername}" 
+        <a href="${process.env.BACKEND_URL}/deny-request?username=${githubUsername}" 
            style="display: inline-block; background-color: #dc3545; color: #fff; text-decoration: none; padding: 10px 20px; border-radius: 5px; margin: 5px; width: 150px; text-align: center;">
           Deny Request
         </a>
