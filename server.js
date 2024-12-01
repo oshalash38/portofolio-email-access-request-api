@@ -16,7 +16,9 @@ const corsOptions = {
     const allowedOrigins = [
       'http://localhost:3000', // Frontend (local dev)
       'http://localhost:3001', // Backend (local dev)
-      process.config.FRONTEND_URL,
+      process.config.FRONTEND_URL_1,
+      process.config.FRONTEND_URL_2,
+      process.config.FRONTEND_URL_3,
       process.config.BACKEND_URL,
     ];
     // Allow requests from these origins or non-origin requests (e.g., server-to-server)
