@@ -35,8 +35,8 @@ const corsOptions = {
   allowedHeaders: 'Content-Type,Authorization', // Allow specific headers
 };
 
-app.options('*', cors(corsOptions));
-// app.use(cors());
+// app.options('*', cors(corsOptions));
+app.use(cors());
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
